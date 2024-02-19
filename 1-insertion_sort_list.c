@@ -55,11 +55,11 @@ void insertion_sort_list(listint_t **list)
 	listint_t *node_c, *node_p, *head;
 
 	head = *list;
-	*list = (*list)->next;
 
 	if (head == NULL || head->next == NULL)
 		return;
 
+	*list = (*list)->next;
 	while (*list != NULL)
 	{
 		node_c = *list;

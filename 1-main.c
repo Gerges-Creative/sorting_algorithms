@@ -1,5 +1,5 @@
 #include <stdio.h>
-11;rgb:2828/2a2a/3636#include <stdlib.h>
+#include <stdlib.h>
 #include "sort.h"
 
 /**
@@ -41,7 +41,7 @@ listint_t *create_listint(const int *array, size_t size)
 int main(void)
 {
     listint_t *list;
-    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+    int array[] = {19};
     size_t n = sizeof(array) / sizeof(array[0]);
 
     list = create_listint(array, n);
