@@ -57,6 +57,9 @@ void insertion_sort_list(listint_t **list)
 	head = *list;
 	*list = (*list)->next;
 
+	if (head == NULL || head->next == NULL)
+		return;
+
 	while (*list != NULL)
 	{
 		node_c = *list;
