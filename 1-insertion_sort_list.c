@@ -56,28 +56,31 @@ void insertion_sort_list(listint_t **list)
 
 	head = *list;
 
-	if (!list || head == NULL || head->next == NULL)
+	if (list == NULL || head == NULL || head->next == NULL)
 		return;
 
-	*list = (*list)->next;
-	while (*list != NULL)
+	node_c = (*list)->next;
+	while (node_c != NULL)
 	{
-		node_c = *list;
-		node_p = (*list)->prev;
+		node_p = node_c->prev;
 
-		if (node_p != NULL && node_c->n < node_p->n)
+		while (node_p != NULL && node_c->n < node_p->n)
 		{
 			/* Then swap the two nodes */
 			/* & create all the neccessary links */
 			/* through calling sort_swap function */
 			sort_swap(&head, &node_c, &node_p);
-			/* At the end of the if condition reset list to the */
-			/* head node and then print list */
-			*list = head;
-			print_list(*list);
+			/* At the end of the if condition (reset list to the */
+			/* head node) and then print list */
+			/* The reset part has been modified to be an inner */
+			/* and node_p take the value of the node_c->prev */
+			/* so that when a node is smaller it keeps moving */
+			/* untill it reachs its position */
+			node_p = node_c->prev;
+			print_list(head);
 		}
 
-		*list = (*list)->next;
+		node_c = node_c->next;
 	}
 
 	*list = head;
