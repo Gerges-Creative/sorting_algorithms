@@ -13,9 +13,17 @@ listint_t *sort_swap(listint_t **h, listint_t **cur, listint_t **prev)
 
 	node_c = *cur;
 	node_p = *prev;
-
+	/* If there are just two nodes */
+	if (node_p->prev == NULL && node_c->next == NULL)
+	{
+		node_c->next = node_p;
+		node_p->prev = node_c;
+		node_c->prev = NULL;
+		node_p->next = NULL;
+		*h = node_c;
+	}
 	/* First condition if node_p is the head */
-	if (node_p->prev == NULL)
+	else if (node_p->prev == NULL)
 	{
 		node_c->next->prev = node_p;
 		node_c->prev = NULL;
@@ -37,7 +45,6 @@ listint_t *sort_swap(listint_t **h, listint_t **cur, listint_t **prev)
 		node_p->next = node_c->next;
 		node_c->prev = node_p->prev;
 	}
-
 	node_c->next = node_p;
 	node_p->prev = node_c;
 	return (*h);
