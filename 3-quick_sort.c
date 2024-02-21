@@ -5,9 +5,9 @@ size_t lomuto_partition(int *array, size_t size, ssize_t low, ssize_t high);
 void swap(int *array, size_t size, int *a, int *b);
 
 /**
- * quic_sort - a function that sorts an array of integers in ascending
+ * quick_sort - a function that sorts an array of integers in ascending
  * order using the Quick Sort algorithm.
- * @array, pointer to the array
+ * @array: pointer to the array
  * @size: size of the array
  * Return: no return value needed
  */
@@ -50,9 +50,9 @@ void quick_sorter(int *array, size_t size, ssize_t low, ssize_t high)
  */
 size_t lomuto_partition(int *array, size_t size, ssize_t low, ssize_t high)
 {
-	int pivot = array[high], i, j;;
+	int pivot = array[high], i, j;
 
-	for(j = i = low; j < high; j++)
+	for (j = i = low; j < high; j++)
 	{
 		if (array[j] < pivot)
 		{
