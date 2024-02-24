@@ -1,6 +1,21 @@
 #include "sort.h"
 
 /**
+ * get_gap - get the gap
+ * @size: size of the array
+ * Return: gap of shell sort
+ */
+size_t get_gap(size_t size)
+{
+	size_t n;
+
+	n = 1;
+	while (n < size)
+		n = n * 3 + 1;
+	return ((n - 1) / 3);
+}
+
+/**
  * shell_sort - a function that sorts an array of integers in ascending order
  * using the Shell Sort algorithm and the knuth sequence n + 1 = n * 3 + 1
  * @array: the array
@@ -15,10 +30,7 @@ void shell_sort(int *array, size_t size)
 	if (!array || !size)
 		return;
 
-	while (gap < size)
-		gap = gap * 3 + 1;
-
-	for (gap = (gap - 1) / 3; gap; gap = (gap - 1) / 3)
+	for (gap = get_gap(size); gap; gap = (gap - 1) / 3)
 	{
 		for (i = gap; i < size; i++)
 		{
